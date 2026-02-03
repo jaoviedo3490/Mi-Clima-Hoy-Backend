@@ -1,0 +1,67 @@
+"alerts": {
+        "alert": [
+            {
+                "identifier": "3672dbf2-ff03-11f0-8583-b63eaaffe11e",
+                "headline": "yellow warning - cold - in effect",
+                "msgtype": "Update",
+                "severity": "Moderate",
+                "urgency": "Future",
+                "areas": "",
+                "category": "Met",
+                "certainty": "Likely",
+                "event": "cold",
+                "note": "Service Notice – November 2025: The Environment and Climate Change Canada (ECCC) CAP Service undergoes changes from time to time as the business of alerting evolves. For 2025, changes are expected to include... 1) ECCC's initiative to upgrade the presentation of alerts into Colour-Coded Weather Alerts is tentatively set for deployment November 26, 2025. Data changes will appear in CAP following this deployment, 2) the alert name ‘extreme cold warning’ will change to ‘cold warning’, 3) two Public zone names will change in Saskatchewan, 4) ECCC's initiative to introduce free-form polygons to represent the true threat area of a weather hazard continues, there will be changes coming to CAP and 5) other minor improvements and corrections. For more information on these changes: https://comm.collab.science.gc.ca/mailman3/hyperkitty/list/dd_info@comm.collab.science.gc.ca/ | Notification de service – novembre 2025: Le service du PAC d’Environnement et Changement climatique Canada (ECCC) subit périodiquement des changements à mesure que le système d’alerte évolue. Pour 2025, il y aura des changements incluant... 1) l'initiative d'ECCC visant à améliorer la présentation des alertes sous forme d'alertes météorologiques codées par couleur est provisoirement prévue pour un déploiement le 26 novembre 2025. Des changements aux données apparaîtront dans le PAC suite à ce déploiement, 2) le nom de l’alerte ‘avertissement de froid extrême’ changera pour ‘avertissement de froid’, 3) deux noms de zones publiques seront modifiés en Saskatchewan, 4) l’initiative d’ECCC visant à introduire des polygones libres pour représenter la véritable zone de menace d’un danger météorologique se poursuit. Des changements seront également apportés au PAC et 5) d’autres améliorations et corrections mineures. Pour plus d’informations sur ces changements: https://comm.collab.science.gc.ca/mailman3/hyperkitty/list/dd_info@comm.collab.science.gc.ca/",
+                "effective": "2026-01-31T23:20:34-00:00",
+                "expires": "2026-02-01T15:20:34-00:00",
+                "desc": "\nCold temperatures continue this weekend.\n\nWhat:\nWind chills of minus 25 to minus 30.\n\nWhen:\nAgain tonight into early Sunday morning.\n\n###\n\nPlease continue to monitor alerts and forecasts issued by Environment Canada. To report severe weather, send an email to ONstorm@ec.gc.ca or post reports on X using #ONStorm.\n\nFor more information about the alerting program, please visit: https://www.canada.ca/en/services/environment/weather/severeweather/weather-alerts/colour-coded-alerts.\n",
+                "instruction": "\nCover up. Frostbite can develop within minutes on exposed skin, especially with wind chill.\n\nIf it’s too cold for you to stay outside, it’s too cold for your pet to stay outside.\n\nWatch for colour changes on fingers and toes, pain, numbness, a tingling sensation, or swelling.  If present, move indoors and begin warming.\n"
+            },
+            {
+                "identifier": "a694740f-ff24-11f0-8583-b63eaaffe11e",
+                "headline": "yellow warning - cold - in effect",
+                "msgtype": "Update",
+                "severity": "Moderate",
+                "urgency": "Future",
+                "areas": "",
+                "category": "Met",
+                "certainty": "Likely",
+                "event": "cold",
+                "note": "Service Notice – November 2025: The Environment and Climate Change Canada (ECCC) CAP Service undergoes changes from time to time as the business of alerting evolves. For 2025, changes are expected to include... 1) ECCC's initiative to upgrade the presentation of alerts into Colour-Coded Weather Alerts is tentatively set for deployment November 26, 2025. Data changes will appear in CAP following this deployment, 2) the alert name ‘extreme cold warning’ will change to ‘cold warning’, 3) two Public zone names will change in Saskatchewan, 4) ECCC's initiative to introduce free-form polygons to represent the true threat area of a weather hazard continues, there will be changes coming to CAP and 5) other minor improvements and corrections. For more information on these changes: https://comm.collab.science.gc.ca/mailman3/hyperkitty/list/dd_info@comm.collab.science.gc.ca/ | Notification de service – novembre 2025: Le service du PAC d’Environnement et Changement climatique Canada (ECCC) subit périodiquement des changements à mesure que le système d’alerte évolue. Pour 2025, il y aura des changements incluant... 1) l'initiative d'ECCC visant à améliorer la présentation des alertes sous forme d'alertes météorologiques codées par couleur est provisoirement prévue pour un déploiement le 26 novembre 2025. Des changements aux données apparaîtront dans le PAC suite à ce déploiement, 2) le nom de l’alerte ‘avertissement de froid extrême’ changera pour ‘avertissement de froid’, 3) deux noms de zones publiques seront modifiés en Saskatchewan, 4) l’initiative d’ECCC visant à introduire des polygones libres pour représenter la véritable zone de menace d’un danger météorologique se poursuit. Des changements seront également apportés au PAC et 5) d’autres améliorations et corrections mineures. Pour plus d’informations sur ces changements: https://comm.collab.science.gc.ca/mailman3/hyperkitty/list/dd_info@comm.collab.science.gc.ca/",
+                "effective": "2026-02-01T03:08:34-00:00",
+                "expires": "2026-02-01T18:59:34-00:00",
+                "desc": "\nCold temperatures continue this weekend.\n\nWhat:\nWind chills of minus 25 to minus 30.\n\nWhen:\nAgain tonight into early Sunday morning.\n\n###\n\nPlease continue to monitor alerts and forecasts issued by Environment Canada. To report severe weather, send an email to ONstorm@ec.gc.ca or post reports on X using #ONStorm.\n\nFor more information about the alerting program, please visit: https://www.canada.ca/en/services/environment/weather/severeweather/weather-alerts/colour-coded-alerts.\n",
+                "instruction": "\nCover up. Frostbite can develop within minutes on exposed skin, especially with wind chill.\n\nIf it’s too cold for you to stay outside, it’s too cold for your pet to stay outside.\n\nWatch for colour changes on fingers and toes, pain, numbness, a tingling sensation, or swelling.  If present, move indoors and begin warming.\n"
+            },
+            {
+                "identifier": "a7a4ef2b-ff24-11f0-8583-b63eaaffe11e",
+                "headline": "yellow warning - cold - in effect",
+                "msgtype": "Update",
+                "severity": "Moderate",
+                "urgency": "Future",
+                "areas": "",
+                "category": "Met",
+                "certainty": "Likely",
+                "event": "cold",
+                "note": "Service Notice – November 2025: The Environment and Climate Change Canada (ECCC) CAP Service undergoes changes from time to time as the business of alerting evolves. For 2025, changes are expected to include... 1) ECCC's initiative to upgrade the presentation of alerts into Colour-Coded Weather Alerts is tentatively set for deployment November 26, 2025. Data changes will appear in CAP following this deployment, 2) the alert name ‘extreme cold warning’ will change to ‘cold warning’, 3) two Public zone names will change in Saskatchewan, 4) ECCC's initiative to introduce free-form polygons to represent the true threat area of a weather hazard continues, there will be changes coming to CAP and 5) other minor improvements and corrections. For more information on these changes: https://comm.collab.science.gc.ca/mailman3/hyperkitty/list/dd_info@comm.collab.science.gc.ca/ | Notification de service – novembre 2025: Le service du PAC d’Environnement et Changement climatique Canada (ECCC) subit périodiquement des changements à mesure que le système d’alerte évolue. Pour 2025, il y aura des changements incluant... 1) l'initiative d'ECCC visant à améliorer la présentation des alertes sous forme d'alertes météorologiques codées par couleur est provisoirement prévue pour un déploiement le 26 novembre 2025. Des changements aux données apparaîtront dans le PAC suite à ce déploiement, 2) le nom de l’alerte ‘avertissement de froid extrême’ changera pour ‘avertissement de froid’, 3) deux noms de zones publiques seront modifiés en Saskatchewan, 4) l’initiative d’ECCC visant à introduire des polygones libres pour représenter la véritable zone de menace d’un danger météorologique se poursuit. Des changements seront également apportés au PAC et 5) d’autres améliorations et corrections mineures. Pour plus d’informations sur ces changements: https://comm.collab.science.gc.ca/mailman3/hyperkitty/list/dd_info@comm.collab.science.gc.ca/",
+                "effective": "2026-02-01T03:08:34-00:00",
+                "expires": "2026-02-01T18:59:34-00:00",
+                "desc": "\n###\n\nPlease continue to monitor alerts and forecasts issued by Environment Canada. To report severe weather, send an email to ONstorm@ec.gc.ca or post reports on X using #ONStorm.\n\nFor more information about the alerting program, please visit: https://www.canada.ca/en/services/environment/weather/severeweather/weather-alerts/colour-coded-alerts.\n",
+                "instruction": "\nCover up. Frostbite can develop within minutes on exposed skin, especially with wind chill.\n\nIf it’s too cold for you to stay outside, it’s too cold for your pet to stay outside.\n\nWatch for colour changes on fingers and toes, pain, numbness, a tingling sensation, or swelling.  If present, move indoors and begin warming.\n"
+            },
+            {
+                "identifier": "bb474312-ff67-11f0-8583-b63eaaffe11e",
+                "headline": "yellow warning - cold - in effect",
+                "msgtype": "Update",
+                "severity": "Moderate",
+                "urgency": "Future",
+                "areas": "",
+                "category": "Met",
+                "certainty": "Likely",
+                "event": "cold",
+                "note": "Service Notice – November 2025: The Environment and Climate Change Canada (ECCC) CAP Service undergoes changes from time to time as the business of alerting evolves. For 2025, changes are expected to include... 1) ECCC's initiative to upgrade the presentation of alerts into Colour-Coded Weather Alerts is tentatively set for deployment November 26, 2025. Data changes will appear in CAP following this deployment, 2) the alert name ‘extreme cold warning’ will change to ‘cold warning’, 3) two Public zone names will change in Saskatchewan, 4) ECCC's initiative to introduce free-form polygons to represent the true threat area of a weather hazard continues, there will be changes coming to CAP and 5) other minor improvements and corrections. For more information on these changes: https://comm.collab.science.gc.ca/mailman3/hyperkitty/list/dd_info@comm.collab.science.gc.ca/ | Notification de service – novembre 2025: Le service du PAC d’Environnement et Changement climatique Canada (ECCC) subit périodiquement des changements à mesure que le système d’alerte évolue. Pour 2025, il y aura des changements incluant... 1) l'initiative d'ECCC visant à améliorer la présentation des alertes sous forme d'alertes météorologiques codées par couleur est provisoirement prévue pour un déploiement le 26 novembre 2025. Des changements aux données apparaîtront dans le PAC suite à ce déploiement, 2) le nom de l’alerte ‘avertissement de froid extrême’ changera pour ‘avertissement de froid’, 3) deux noms de zones publiques seront modifiés en Saskatchewan, 4) l’initiative d’ECCC visant à introduire des polygones libres pour représenter la véritable zone de menace d’un danger météorologique se poursuit. Des changements seront également apportés au PAC et 5) d’autres améliorations et corrections mineures. Pour plus d’informations sur ces changements: https://comm.collab.science.gc.ca/mailman3/hyperkitty/list/dd_info@comm.collab.science.gc.ca/",
+                "effective": "2026-02-01T09:51:00-00:00",
+                "expires": "2026-02-01T19:01:00-00:00",
+                "desc": "\nCold temperatures continue this morning.\n\nWhat:\nWind chills of minus 25 to minus 30.\n\nWhen:\nContinuing this morning.\n\n###\n\nPlease continue to monitor alerts and forecasts issued by Environment Canada. To report severe weather, send an email to ONstorm@ec.gc.ca or post reports on X using #ONStorm.\n\nFor more information about the alerting program, please visit: https://www.canada.ca/en/services/environment/weather/severeweather/weather-alerts/colour-coded-alerts.\n",
+                "instruction": "\nCover up. Frostbite can develop within minutes on exposed skin, especially with wind chill.\n\nIf it’s too cold for you to stay outside, it’s too cold for your pet to stay outside.\n\nWatch for colour changes on fingers and toes, pain, numbness, a tingling sensation, or swelling.  If present, move indoors and begin warming.\n"
+            }
+        ]
