@@ -5,19 +5,14 @@ import Engine from "@/app/Engine/Engine";
 export function GET(request) {
     try {
         const { searchParams } = new URL(request.url);
+
         const latitude = searchParams.get("lat");
         const longitude = searchParams.get("lon");
-        const locate = searchParams.get("locate");
-        const customLocation = searchParams.get("custom") === "true";
-        return fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}&zoom=10`)
-            .then((res) => res.json())
-            .then((data) => {
 
-                //const ciudad = data?.address?.city || data?.address?.town || data?.address?.village || `${latitude},${longitude}`;
-                return fetch(
-                    `https://api.weatherapi.com/v1/current.json?key=a21411e5a88c4a5291a173440243010&q=${(customLocation) ? locate : `${latitude},${longitude}`}&aqi=yes`
-                );
-            })
+       return fetch(
+            `https://api.weatherapi.com/v1/current.json?key=a21411e5a88c4a5291a173440243010&q=${`${latitude},${longitude}`}&aqi=yes`
+        )
+
             .then((res) => res.json())
             .then((data) => {
                 var param = {}
@@ -26,7 +21,8 @@ export function GET(request) {
                 Metrics.forEach(element => {
                     response[element] = Engine(param, element, data)
                 });
-                //var resEngine = Engine(param, "Temperatura", data)
+                response["last_update"] ={ data: data.current.last_updated};//current.last_updated
+                //response["pronostic"] = (data.current.is_day === 0) ? { text: `"night ${data.current.condition["text"]}"`} :  { text: `"day ${current.condition["text"]}"`}
 
                 return NextResponse.json({ error: false, response: response })
             })

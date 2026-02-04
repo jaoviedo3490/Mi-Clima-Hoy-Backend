@@ -168,8 +168,8 @@ const Engine = (props, typeAlert_, climateAlert) => {
 
         switch (typeAlert) {
             case "Temperatura":
-                console.log("a ver")
-                console.log(typeAlert)
+                //console.log("a ver")
+                //console.log(typeAlert)
                 nivelAlert = getAlert(climateAlert.current.temp_c, typeAlert);
 
                 if (alertas["Temperatura"][nivelAlert]?.titulo === 'Peligro') {
@@ -319,7 +319,7 @@ const Engine = (props, typeAlert_, climateAlert) => {
                 json_data_return["Temperatura"] = {
 
                     IndicatorGraph: {
-                        min: -50, max: 40, type: "Temperatura", indicator: "C°",
+                        min: -50, max: 40, type: "Temperatura", unit: "C°",
                         split: 3, data: climateAlert.current.temp_c,
                         //recomendaciones: alertas["Temperatura"][nivelAlert]?.Message || 'No disponible',
                         optionalData: climateAlert.current.feelslike_c, MetricsData: alertas["Temperatura"][nivelAlert]
@@ -348,7 +348,7 @@ const Engine = (props, typeAlert_, climateAlert) => {
                     *las alertas de nivel "Peligro" para Radiacion UV
                     */
 
-                    const alertObject = {
+                    alertObject = {
                         alertBody: alertas["Radiacion UV"][nivelAlertUv],
                         value: climateAlert.current.uv,
                         type: `${typeAlert} (Valores Peligrosos)`
@@ -407,7 +407,7 @@ const Engine = (props, typeAlert_, climateAlert) => {
                     *las alertas de nivel "Advertencia" para Radiacion UV
                     */
 
-                    const warningObject = {
+                    warningObject = {
                         alertBody: alertas["Radiacion UV"][nivelAlertUv],
                         value: climateAlert.current.uv,
                         type: `${typeAlert} (Valores de riesgo moderado)`
@@ -471,14 +471,14 @@ const Engine = (props, typeAlert_, climateAlert) => {
                 json_data_return["Radiacion UV"] = {
 
                     IndicatorGraph: {
-                        min: 0, max: 20, type: "Radiacion UV", indicator: "UV",
-                        split: 2, data: climateAlert.current.uv, color: alertas["Radiacion UV"][nivelAlert]?.color || '#4fd6ffff',
-                        recomendaciones: alertas["Radiacion UV"][nivelAlert]?.Message || 'No disponible',
-                        MetricsData: alertas["Radiacion UV"][nivelAlert] || 'No disponible',
+                        min: 0, max: 20, type: "Radiacion UV", unit: "UV",
+                        split: 2, data: climateAlert.current.uv,
+                        //recomendaciones: alertas["Radiacion UV"][nivelAlertUv]?.Message || 'No disponible',
+                        MetricsData: alertas["Radiacion UV"][nivelAlertUv] || 'No disponible',
                         optionalData: 6
                     },
-                    Alertas: Alerts,
-                    Advertencias: Warnings
+                    Alerts: alertObject,
+                    Warnings: warningObject
                 }
                 break;
             case 'Nubosidad':
@@ -592,7 +592,7 @@ const Engine = (props, typeAlert_, climateAlert) => {
                     *las alertas de nivel "Peligro"
                     */
 
-                    const alertObject = {
+                    alertObject = {
                         alertBody: alertas["Quality-Air"][nivelAlertaQualityAir],
                         value: climateAlert.current.air_quality["us-epa-index"],
                         type: `${typeAlert} (Valores Peligrosos)`
@@ -654,7 +654,7 @@ const Engine = (props, typeAlert_, climateAlert) => {
                     *las alertas de nivel "Advertencia"
                     */
 
-                    const warningObject = {
+                    warningObject = {
                         alertBody: alertas["Quality-Air"][nivelAlertaQualityAir],
                         value: climateAlert.current.air_quality["us-epa-index"],
                         type: `${typeAlert} (Valores de riesgo moderado)`
@@ -734,13 +734,13 @@ const Engine = (props, typeAlert_, climateAlert) => {
                 json_data_return["Quality-Air"] = {
 
                     IndicatorGraph: {
-                        min: 0, max: 6, type: "Quality-Air", indicator: "a",
-                        split: 2, data: climateAlert.current.air_quality['us-epa-index'], color: alertas["Quality-Air"][nivelAlert]?.color || '#4fd6ffff',
-                        recomendaciones: qualityAirMessage,
-                        optionalData: 3, MetricsData: alertas["Quality-Air"][nivelAlert]
+                        min: 0, max: 6, type: "Quality-Air", unit: "a",
+                        split: 2, data: climateAlert.current.air_quality['us-epa-index'],
+                        //recomendaciones: qualityAirMessage,
+                        optionalData: 3, MetricsData: alertas["Quality-Air"][nivelAlertaQualityAir]
                     },
-                    Alertas: setAlert_Module_Second,
-                    Advertencias: setWarnings_Module_Second
+                    Alerts: alertObject,
+                    Warnings: warningObject
                 }
                 break;
 
@@ -763,7 +763,7 @@ const Engine = (props, typeAlert_, climateAlert) => {
                     *las alertas de nivel "Peligro"
                     */
 
-                    const alertObject = {
+                    alertObject = {
                         alertBody: alertas["Precipitacion"][nivelAlertaPrecipitation],
                         value: climateAlert.current.precip_mm,
                         type: `${typeAlert} (Valores Peligrosos)`
@@ -823,7 +823,7 @@ const Engine = (props, typeAlert_, climateAlert) => {
                     *las alertas de nivel "Advertencia"
                     */
 
-                    const warningObject = {
+                    warningObject = {
                         alertBody: alertas["Precipitacion"][nivelAlertaPrecipitation],
                         value: climateAlert.current.precip_mm,
                         type: `${typeAlert} (Valores de riesgo moderado)`
@@ -899,18 +899,18 @@ const Engine = (props, typeAlert_, climateAlert) => {
                                     : `Definición no encontrada`;
 
 
-                //alertas['Precipitacion'][nivelAlertaPrecipitation].Message = messagePrecipitacion;
+                alertas['Precipitacion'][nivelAlertaPrecipitation].Message = messagePrecipitacion;
 
                 json_data_return["Precipitacion"] = {
 
                     IndicatorGraph: {
                         min: 0, max: 40, type: "Precipitacion", indicator: "mm",
-                        split: 2, data: climateAlert.current.precip_mm, color: alertas["Precipitacion"][nivelAlert]?.color || '#4fd6ffff',
-                        recomendaciones: messagePrecipitacion,
-                        optionalData: 12, MetricsData: alertas["Precipitacion"][nivelAlert]
+                        split: 2, data: climateAlert.current.precip_mm, 
+                       // recomendaciones: messagePrecipitacion,
+                        optionalData: 12, MetricsData: alertas["Precipitacion"][nivelAlertaPrecipitation]
                     },
-                    Alertas: setAlert_Module_Second,
-                    Advertencias: setWarnings_Module_Second
+                    Alerts: alertObject,
+                    Warnings: warningObject
                 }
                 break;
             case "Velocidad-Viento":
@@ -931,7 +931,7 @@ const Engine = (props, typeAlert_, climateAlert) => {
                     *las alertas de nivel "Peligro"
                     */
 
-                    const alertObject = {
+                    alertObject = {
                         alertBody: alertas["Velocidad-Viento"][nivelAlertaVelocidadViento],
                         value: climateAlert.current.wind_kph,
                         type: `${typeAlert} (Valores Peligrosos)`
@@ -991,7 +991,7 @@ const Engine = (props, typeAlert_, climateAlert) => {
                     *las alertas de nivel "Advertencia"
                     */
 
-                    const warningObject = {
+                    warningObject = {
                         alertBody: alertas["Velocidad-Viento"][nivelAlertaVelocidadViento],
                         value: climateAlert.current.wind_kph,
                         type: `${typeAlert} (Valores de riesgo moderado)`
@@ -1070,13 +1070,13 @@ const Engine = (props, typeAlert_, climateAlert) => {
                 json_data_return["Velocidad-Viento"] = {
 
                     IndicatorGraph: {
-                        min: 0, max: 100, type: "Velocidad-Viento", indicator: "KM",
-                        split: 2, data: climateAlert.current.wind_kph, color: alertas["Velocidad-Viento"][nivelAlert]?.color || '#4fd6ffff',
-                        recomendaciones: messageVelocidadViento,
-                        optionalData: 65, MetricsData: alertas["Velocidad-Viento"][nivelAlert]
+                        min: 0, max: 100, type: "Velocidad-Viento", unit: "KM",
+                        split: 2, data: climateAlert.current.wind_kph,
+                        //recomendaciones: messageVelocidadViento,
+                        optionalData: 65, MetricsData: alertas["Velocidad-Viento"][nivelAlertaVelocidadViento]
                     },
-                    Alertas: setAlert_Module_Second,
-                    Advertencias: setWarnings_Module_Second
+                    Alerts: alertObject,
+                    Warnings: warningObject
                 }
                 break;
             case "MonoCarbono":
