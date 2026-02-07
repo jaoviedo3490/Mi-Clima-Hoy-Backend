@@ -9,7 +9,7 @@ export function GET(request) {
         const latitude = searchParams.get("lat");
         const longitude = searchParams.get("lon");
 
-       return fetch(
+        return fetch(
             `https://api.weatherapi.com/v1/current.json?key=a21411e5a88c4a5291a173440243010&q=${`${latitude},${longitude}`}&aqi=yes`
         )
 
@@ -18,11 +18,23 @@ export function GET(request) {
                 var param = {}
                 var response = {}
                 var Metrics = ["Temperatura", "Radiacion UV", "Velocidad-Viento", "Precipitacion", "Quality-Air"]
+                var QualityAirMetrics = ["PM10", "PM2_5", "DioAzufre", "Ozono", "DioNitrogeno", "MonoCarbono"]
+                var PronosticsMetrics = ["Visibilidad","Humedad","Nubosidad"];
+                response["QualityMetrics"] = {}
+                response["PronosticsMetrics"] = {}
+                QualityAirMetrics.forEach(element => {
+                    response["QualityMetrics"][element] = Engine(param, element, data)
+                })
                 Metrics.forEach(element => {
                     response[element] = Engine(param, element, data)
                 });
-                response["last_update"] ={ data: data.current.last_updated};//current.last_updated
-                //response["pronostic"] = (data.current.is_day === 0) ? { text: `"night ${data.current.condition["text"]}"`} :  { text: `"day ${current.condition["text"]}"`}
+                PronosticsMetrics.forEach(element=>{
+                    response["PronosticsMetrics"][element]=Engine(param,element,data)
+                });
+                response["last_update"] = { data: data.current.last_updated };//current.last_updated
+                response["pronostic"] = { text: data.current.condition["text"] }
+                response["is_day"] = { data: data.current.is_day }
+        
 
                 return NextResponse.json({ error: false, response: response })
             })

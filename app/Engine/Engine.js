@@ -2,15 +2,15 @@ const Engine = (props, typeAlert_, climateAlert) => {
     try {
         const typeAlert = typeAlert_ //Recibe el tipo de alerta del componente padre
         //debugger;
-        var Alerts, setAlert_Module_Second, setWarnings_Module_Second, Warnings; //Arreglo que guardara las alertas de las distintas metricas
+
         //Arreglo que guardara las advertencias de las distintas metricas
         var json_data_return = {}
-        var qualityAirData,pronosticsData;
+        var qualityAirData = {}, pronosticsData = {};
         let alerta = [];
         var nivelAlert
-        var messageNubosity,messageHumidity;
-        var qualityAirMessage,messagePrecipitacion,messageVelocidadViento
-        var messagepm2_5,messagepm10
+        var messageNubosity, messageHumidity;
+        var qualityAirMessage, messagePrecipitacion, messageVelocidadViento
+        var messagepm2_5, messagepm10
         var warningObject = {}
         var alertObject = {}
         //Estos son los rangos iniciales de los valores que generaran los alertamientos , se dividen en las distintas metricas evaluadas
@@ -324,8 +324,8 @@ const Engine = (props, typeAlert_, climateAlert) => {
                         //recomendaciones: alertas["Temperatura"][nivelAlert]?.Message || 'No disponible',
                         optionalData: climateAlert.current.feelslike_c, MetricsData: alertas["Temperatura"][nivelAlert]
                     },
-                    Alertas: alertObject,
-                    Advertencias: warningObject
+                    Alerts: [alertObject],
+                    Warnings: [warningObject]
                 }
                 break;
 
@@ -477,12 +477,12 @@ const Engine = (props, typeAlert_, climateAlert) => {
                         MetricsData: alertas["Radiacion UV"][nivelAlertUv] || 'No disponible',
                         optionalData: 6
                     },
-                    Alerts: alertObject,
-                    Warnings: warningObject
+                    Alerts: [alertObject],
+                    Warnings: [warningObject]
                 }
                 break;
             case 'Nubosidad':
-                 messageNubosity = (climateAlert.current.temp_c < -40 || climateAlert.current.temp_c > 40) ? `Peligro extremo: la Temperatura es muy peligrosa. Busca refugio en un ambiente más estable y evita salir al exterior.` :
+                messageNubosity = (climateAlert.current.temp_c < -40 || climateAlert.current.temp_c > 40) ? `Peligro extremo: la Temperatura es muy peligrosa. Busca refugio en un ambiente más estable y evita salir al exterior.` :
                     (climateAlert.current.temp_c >= -40 && climateAlert.current.temp_c <= 15) ? (
                         (climateAlert.current.cloud >= 0 && climateAlert.current.cloud <= 25) ? `Cielos despejados con alta visibilidad. Abrígate bien y usa gafas de sol para reducir el deslumbramiento en áreas de nieve o hielo. Lleva ropa térmica.` :
                             (climateAlert.current.cloud > 25 && climateAlert.current.cloud <= 50) ? `Cielos parcialmente nublados. Aunque algo menos frío, usa ropa de invierno. Lleva gorro, bufanda y guantes para mantener el calor.` :
@@ -511,10 +511,11 @@ const Engine = (props, typeAlert_, climateAlert) => {
                 }
                 //setDataNubosidad(alertas["Nubosidad"][nivelAlertNubosidad]);
 
-                pronosticsData['Nubosidad'] = {
+                pronosticsData = {
                     data: climateAlert.current.cloud,
                     MetricsData: alertas["Nubosidad"][nivelAlertNubosidad]
                 }
+                json_data_return = pronosticsData
                 break;
             case 'Humedad':
                 messageHumidity = (climateAlert.current.temp_c < -40 || climateAlert.current.temp_c > 40) ? `Peligro extremo: la Temperatura es muy peligrosa. Busca refugio en un ambiente más estable y evita salir al exterior.` :
@@ -543,11 +544,11 @@ const Engine = (props, typeAlert_, climateAlert) => {
 
                 //setDataHumedad(alertas["Humedad"][nivelAlertHumidity]);
 
-                pronosticsData['Humedad'] = {
+                pronosticsData = {
                     data: climateAlert.current.humidity,
-                    MetricsData: alertas["Humedad"][nivelAlertNubosidad]
+                    MetricsData: alertas["Humedad"][nivelAlertHumidity]
                 }
-
+                json_data_return = pronosticsData
                 break;
 
             case 'Visibilidad':
@@ -568,10 +569,11 @@ const Engine = (props, typeAlert_, climateAlert) => {
                 //setDataVisibilidad(alertas["Visibilidad"][nivelAlerVisibilidad]);
 
 
-                pronosticsData['Nubosidad'] = {
+                pronosticsData = {
                     data: climateAlert.current.vis_km,
-                    MetricsData: alertas["Nubosidad"][nivelAlertNubosidad]
+                    MetricsData: alertas["Visibilidad"][nivelAlerVisibilidad]
                 }
+                json_data_return = pronosticsData
                 break;
             case "Quality-Air":
 
@@ -739,8 +741,8 @@ const Engine = (props, typeAlert_, climateAlert) => {
                         //recomendaciones: qualityAirMessage,
                         optionalData: 3, MetricsData: alertas["Quality-Air"][nivelAlertaQualityAir]
                     },
-                    Alerts: alertObject,
-                    Warnings: warningObject
+                    Alerts: [alertObject],
+                    Warnings: [warningObject]
                 }
                 break;
 
@@ -905,12 +907,12 @@ const Engine = (props, typeAlert_, climateAlert) => {
 
                     IndicatorGraph: {
                         min: 0, max: 40, type: "Precipitacion", indicator: "mm",
-                        split: 2, data: climateAlert.current.precip_mm, 
-                       // recomendaciones: messagePrecipitacion,
+                        split: 2, data: climateAlert.current.precip_mm,
+
                         optionalData: 12, MetricsData: alertas["Precipitacion"][nivelAlertaPrecipitation]
                     },
-                    Alerts: alertObject,
-                    Warnings: warningObject
+                    Alerts: [alertObject],
+                    Warnings: [warningObject]
                 }
                 break;
             case "Velocidad-Viento":
@@ -1075,8 +1077,8 @@ const Engine = (props, typeAlert_, climateAlert) => {
                         //recomendaciones: messageVelocidadViento,
                         optionalData: 65, MetricsData: alertas["Velocidad-Viento"][nivelAlertaVelocidadViento]
                     },
-                    Alerts: alertObject,
-                    Warnings: warningObject
+                    Alerts: [alertObject],
+                    Warnings: [warningObject]
                 }
                 break;
             case "MonoCarbono":
@@ -1097,11 +1099,11 @@ const Engine = (props, typeAlert_, climateAlert) => {
                 //setMonoCarbono(alertas['MonoCarbono'][nivelAlertaMonoCarbono]);
 
                 //const o3 = ((climateAlert.current.air_quality.o3 * 24.45) / 48) / 1000;
-                qualityAirData['MonoCarbono'] = {
+                qualityAirData = {
                     data: co,
-                    MetricsData: alertas["MonoCarbono"][nivelAlertNubosidad]
+                    MetricsData: alertas["MonoCarbono"][nivelAlertaMonoCarbono]
                 }
-                json_data_return['Quality-Air-Components'] = qualityAirData;
+                json_data_return = qualityAirData;
                 break;
             case "DioNitrogeno":
                 //debugger;
@@ -1125,11 +1127,11 @@ const Engine = (props, typeAlert_, climateAlert) => {
 
                 alertas?.DioNitrogeno?.[nivelAlertaDioNitrogeno] && (alertas.DioNitrogeno[nivelAlertaDioNitrogeno].Message = messageNO2)
                 // setDataDioNitrogeno(alertas['DioNitrogeno'][nivelAlertaDioNitrogeno]);
-                qualityAirData['DioNitrogeno'] = {
+                qualityAirData = {
                     data: no2,
-                    MetricsData: alertas["DioNitrogeno"][nivelAlertNubosidad]
+                    MetricsData: alertas["DioNitrogeno"][nivelAlertaDioNitrogeno]
                 }
-                json_data_return['Quality-Air-Components'] = qualityAirData;
+                json_data_return = qualityAirData;
                 break;
             case "Ozono":
 
@@ -1149,20 +1151,21 @@ const Engine = (props, typeAlert_, climateAlert) => {
                                         `Definición no encontrada`;
                 const nivelAlertaDioOzono = getAlert(o3, typeAlert);
                 alertas?.Ozono?.[nivelAlertaDioOzono] &&
-                    (alertas.Ozono[nivelAlertaDioOzono].Message = messageO3);
-
+                    (alertas.Ozono[nivelAlertaDioOzono].Message = "messageO3");
+                alertas.Ozono[nivelAlertaDioOzono].Message = messageO3
                 //setDataOzono(alertas['Ozono'][nivelAlertaDioOzono]);
-                qualityAirData['DioNitrogeno'] = {
+                console.log(alertas.Ozono[nivelAlertaDioOzono].Message)
+                qualityAirData = {
                     data: o3,
-                    MetricsData: alertas["DioNitrogeno"][nivelAlertNubosidad]
+                    MetricsData: alertas["Ozono"][nivelAlertaDioOzono]
                 }
-                json_data_return['Quality-Air-Components'] = qualityAirData;
+                json_data_return = qualityAirData;
                 break;
             case "DioAzufre":
 
                 const so2 = ((climateAlert.current.air_quality.so2) * 24.45 / 64.07) / 1000;
 
-                const messageSO2 =
+                messageSO2 =
                     (so2 >= 0 && so2 <= 0.017) ?
                         `Dióxido de azufre: Nivel bueno (0 - 0.017 ppm). Calidad de aire segura, sin riesgos para la población general. No se requieren precauciones.` :
                         (so2 > 0.017 && so2 <= 0.075) ?
@@ -1176,19 +1179,16 @@ const Engine = (props, typeAlert_, climateAlert) => {
                                         `Definición no encontrada`;
                 const nivelAlertaDioAzufre = getAlert(so2, typeAlert);
                 alertas?.DioAzufre?.[nivelAlertaDioAzufre] && (alertas['DioAzufre'][nivelAlertaDioAzufre].Message = messageSO2)
-                //setDataDioAzufre(alertas['DioAzufre'][nivelAlertaDioAzufre]);
-                qualityAirData['DioAzufre'] = {
+
+                qualityAirData = {
                     data: so2,
-                    MetricsData: alertas["DioAzufre"][nivelAlertNubosidad]
+                    MetricsData: alertas["DioAzufre"][nivelAlertaDioAzufre]
                 }
-                json_data_return['Quality-Air-Components'] = qualityAirData;
+                json_data_return = qualityAirData;
                 break;
             case "PM2_5":
-
-                //const pm2_5 = ((climateAlert.current.air_quality.pm2_5) * 24.45 / 64.07) / 1000;
                 const pm2_5 = ((climateAlert.current.air_quality.pm2_5));
-
-                 messagepm2_5 =
+                messagepm2_5 =
                     (pm2_5 >= 0 && pm2_5 <= 12) ?
                         `(0 - 12 µg/m³). El nivel de Materia Particulada es baja , la calidad del aire es buena y no representa riesgo, permitiendo actividades normales al aire libre y ventilación habitual.` :
                         (pm2_5 > 12 && pm2_5 <= 35.4) ?
@@ -1205,11 +1205,11 @@ const Engine = (props, typeAlert_, climateAlert) => {
                     (alertas.PM2_5[nivelAlertaPM2_5].Message = messagepm2_5);
 
                 //setDataPM2_5(alertas['PM2_5'][nivelAlertaPM2_5]);
-                qualityAirData['PM2_5'] = {
+                qualityAirData = {
                     data: pm2_5,
-                    MetricsData: alertas["PM2_5"][nivelAlertNubosidad]
+                    MetricsData: alertas["PM2_5"][nivelAlertaPM2_5]
                 }
-                json_data_return['Quality-Air-Components'] = qualityAirData;
+                json_data_return = qualityAirData;
                 break;
             case "PM10":
 
@@ -1234,11 +1234,11 @@ const Engine = (props, typeAlert_, climateAlert) => {
                     (alertas.PM10[nivelAlertaPM10].Message = messagepm10);
 
                 //setDataPM10(alertas['PM10'][nivelAlertaPM10]);
-                qualityAirData['PM10'] = {
+                qualityAirData = {
                     data: pm10,
-                    MetricsData: alertas["PM10"][nivelAlertNubosidad]
+                    MetricsData: alertas["PM10"][nivelAlertaPM10]
                 }
-                json_data_return['Quality-Air-Components'] = qualityAirData;
+                json_data_return = qualityAirData;
                 break;
             default: return { "Error": true, "Mensaje": "Valor no especificado" + typeAlert }
         }
