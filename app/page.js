@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <div>
       <h1>Clima API Server</h1>
-      <p>Endpoint: /api/v1/wheater/current?lat={lat}&lon={lon}</p>
+      <p>Pagina de Prueba</p>
     </div>
   );
 }
