@@ -1154,7 +1154,7 @@ const Engine = (props, typeAlert_, climateAlert) => {
                     (alertas.Ozono[nivelAlertaDioOzono].Message = "messageO3");
                 alertas.Ozono[nivelAlertaDioOzono].Message = messageO3
                 //setDataOzono(alertas['Ozono'][nivelAlertaDioOzono]);
-                console.log(alertas.Ozono[nivelAlertaDioOzono].Message)
+                //console.log(alertas.Ozono[nivelAlertaDioOzono].Message)
                 qualityAirData = {
                     data: o3,
                     MetricsData: alertas["Ozono"][nivelAlertaDioOzono]
