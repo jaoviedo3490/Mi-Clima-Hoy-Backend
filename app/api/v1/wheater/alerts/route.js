@@ -7,6 +7,13 @@ export async function GET(request) {
         const latitude = searchParams.get("lat");
         const longitude = searchParams.get("lon");
 
+        // Validación básica
+        if (!latitude || !longitude) {
+            return NextResponse.json(
+                { error: true, Message: "lat y lon son requeridos" },
+                { status: 400, headers: corsHeaders() }
+            );
+        }
         var responseAlerts = {};
         var responseOpenMeteo = {};
         var responseWeatherbit = {};
@@ -41,7 +48,33 @@ export async function GET(request) {
             });*/
 
     } catch (error) {
-        return NextResponse.json({ error: true, Message: String(error) });
+        console.error("API Error:", error);
+        return NextResponse.json(
+            {
+                error: true,
+                Message: error.message || "Error interno del servidor"
+            },
+            {
+                status: 500,
+                headers: corsHeaders()
+            }
+        );
     }
 }
 
+// Agrega esta función OPTIONS para CORS
+export async function OPTIONS() {
+    return new NextResponse(null, {
+        status: 200,
+        headers: corsHeaders()
+    });
+}
+
+
+function corsHeaders() {
+    return {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, OPTIONS, POST, PUT, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    };
+}
