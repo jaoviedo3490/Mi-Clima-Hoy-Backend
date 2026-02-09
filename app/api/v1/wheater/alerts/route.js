@@ -27,7 +27,10 @@ export async function GET(request) {
 
         responseAlerts["OpenMeteo"] = responseOpenMeteo;
 
-        return NextResponse.json({ error: false, response: responseAlerts });
+        return NextResponse.json({ error: false, response: responseAlerts }, {
+            status: 200,
+            headers: corsHeaders()
+        });
 
         /*return fetch(
             `https://api.weatherbit.io/v2.0/alerts?lat=${latitude}&lon=${longitude}&key=a4275a39ffcb42a3b46fc23b2bb93de9`
