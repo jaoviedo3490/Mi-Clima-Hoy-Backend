@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import EngineAlarm from "../../../../Engine/EngineAlarm";
 
 export async function GET(request) {
     try {
@@ -7,6 +8,9 @@ export async function GET(request) {
         const latitude = searchParams.get("lat");
         const longitude = searchParams.get("lon");
 
+        var json_alarms = {}
+
+
         // Validación básica
         if (!latitude || !longitude) {
             return NextResponse.json(
@@ -14,20 +18,10 @@ export async function GET(request) {
                 { status: 400, headers: corsHeaders() }
             );
         }
-        var responseAlerts = {};
-        var responseOpenMeteo = {};
-        var responseWeatherbit = {};
+        json_alarms = await EngineAlarm("null");
 
-        const res = await fetch(
-            `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&alerts=true`
-        );
 
-        const data = await res.json();
-        responseOpenMeteo = data;
-
-        responseAlerts["OpenMeteo"] = responseOpenMeteo;
-
-        return NextResponse.json({ error: false, response: responseAlerts }, {
+        return NextResponse.json({ error: false, response: json_alarms }, {
             status: 200,
             headers: corsHeaders()
         });
