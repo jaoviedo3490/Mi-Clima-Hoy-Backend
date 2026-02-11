@@ -1,0 +1,67 @@
+{
+    "AlarmPublicServices": {
+        "Countries": {
+            "Algeria": [
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/dz-onm-fr/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Argentina": [
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/ar-smn-es/rss.xml","prefijo":"cap","type":"xml/rss"}
+                ],
+            "Austria":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/at-zamg-en/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+             "Barein":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/bh-meteo-en/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Bielorrusia":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/by-belhydromet-en/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Belgica":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/be-irm-en/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Belice":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/bz-nms-en/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Benin":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/bj-meteo-fr/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Bosnia":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/ba-fhmzbih-bs/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+             "Brasil":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/br-inmet-pt/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+             "Bulgaria":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/bg-meteo-bg/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+             "Burundi":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/bi-meteo-fr/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+             "Canada":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/ca-msc-xx/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Chad":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/td-anam-fr/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Chile":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/cl-meteo-es/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "China":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/cn-cma-xx/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Comoras":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/km-anacm-fr/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Colombia":[
+                {"url":"https://www.gestiondelriesgo.gov.co/rss/AtomAlert.aspx","prefijo":"none","type":"xml/rss"}
+            ],
+            "GlobalResorces": [
+                {"url": "https://eonet.gsfc.nasa.gov/api/v3/events","prefijo": "none", "type": "json/rest"},
+                {"url": "https://www.gdacs.org/xml/rss.xml","prefijo": "gdacs","type": "xml/rss"}
+            ],
+            "Herzegovina":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/ba-fhmzbih-bs/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ]
+        }
+    }
+}

@@ -1,49 +1,32 @@
 
 import Parser from 'rss-parser';
+import ServicesDataSet from "../JsonData/ServicesDataSet.json";
+import ServiceStrucData from "../JsonData/ServiceStructData.json"
 
-const EngineAlarm = async (locate) => {
-    
+const EngineAlarm = async (locate, date) => {
+
     try {
         var json_alerts_return = {}
         switch (locate) {
-            case "Colombia": break;
+            case "Colombia":
+                const parserTest = new Parser({
+                    requestOptions: {
+                        headers: {
+                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
+                        }
+                    }
+                })
+                //console.log(ServicesDataSet.AlarmPublicServices.Countries[locate][0].url)
+                const feed = await parserTest.parseURL(ServicesDataSet.AlarmPublicServices.Countries[locate][0].url);
+                //console.log(ServicesDataSet)
+                json_alerts_return['Pais'] = locate;
+                json_alerts_return[locate] = feed.items.filter(el => el.pubDate && el.pubDate.startsWith(date))
+                break;
             default:
+             
                 const parser = new Parser({
                     customFields: {
-                        item: [
-                            ["gdacs:todate", "todate"],
-                            ["gdacs:durationinweek", "durationinweek"],
-                            ["gdacs:year", "year"],
-                            ["gdacs:bbox", "bbox"],
-                            ["gdacs:cap", "cap"],
-                            ["gdacs:icon", "icon"],
-                            ["gdacs:version", "version"],
-                            ["gdacs:eventtype", "eventtype"],
-                            ["gdacs:alertlevel", "alertlevel"],
-                            ["gdacs:alertscore", "alertscore"],
-                            ["gdacs:episodealertlevel", "episodealertlevel"],
-                            ["gdacs:episodealertscore", "episodealertscore"],
-                            ["gdacs:eventname", "eventname"],
-                            ["gdacs:eventid", "eventid"],
-                            ["gdacs:episodeid", "episodeid"],
-                            ["gdacs:calculationtype", "calculationtype"],
-                            ["gdacs:severity", "severity"],
-                            ["gdacs:population", "population"],
-                            ["gdacs:vulnerability", "vulnerability"],
-                            ["gdacs:iso3", "iso3"],
-                            ["gdacs:country", "country"],
-                            ["gdacs:glide", "glide"],
-                            ["gdacs:mapimage", "mapimage"],
-                            ["gdacs:maplink", "maplink"],
-                            ["gdacs:gtsimage", "gtsimage"],
-                            ["gdacs:gtslink", "gtslink"],
-                            ["gdacs:resources", "resources"],
-                            ["gdacs:resource", "resource"],
-                            ["gdacs:title", "title"],
-                            ["gdacs:description", "description"],
-                            ["gdacs:acknowledgements", "acknowledgements"],
-                            ["gdacs:accesslevel", "accesslevel"]
-                        ]
+                        item: []
                     }, requestOptions: {
                         headers: {
                             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
@@ -51,14 +34,18 @@ const EngineAlarm = async (locate) => {
                     }
                 })
                 const feedAlarms = await parser.parseURL("https://www.gdacs.org/xml/rss.xml");
-                json_alerts_return['all_global_alerts'] = feedAlarms;
+                json_alerts_return['Pais'] = "Global_resources";
+                json_alerts_return[locate] = feedAlarms;
                 //console.log(json_alerts_return)
                 break;
         }
         return json_alerts_return;
     } catch (error) {
-          console.log(error)
-        return { error: true, Message: error }
+        console.log(error)
+        return { error: true, Message: String(error) }
     }
 }
 export default EngineAlarm;
+
+
+

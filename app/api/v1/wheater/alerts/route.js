@@ -7,18 +7,30 @@ export async function GET(request) {
 
         const latitude = searchParams.get("lat");
         const longitude = searchParams.get("lon");
-
+        const day = searchParams.get("day");
+        const anio = searchParams.get("anio");
+        const month = searchParams.get("month");
+        var Pais = "";
         var json_alarms = {}
 
 
         // Validación básica
-        if (!latitude || !longitude) {
+        if (!latitude || !longitude || !day || !month || !anio) {
             return NextResponse.json(
-                { error: true, Message: "lat y lon son requeridos" },
+                { error: true, Message: "Parametros incompletos" },
                 { status: 400, headers: corsHeaders() }
             );
         }
-        json_alarms = await EngineAlarm("null");
+        Pais = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}&zoom=10`,
+            {
+                headers: {
+                    "User-Agent": "clima-app-server/1.0"
+                }
+            }
+        )
+        const data = await Pais.json();
+        console.log("Pais: "+data.address.country)
+        json_alarms = await EngineAlarm(data.address.country, `${anio}-${month}-${day}`);
 
 
         return NextResponse.json({ error: false, response: json_alarms }, {
@@ -26,23 +38,7 @@ export async function GET(request) {
             headers: corsHeaders()
         });
 
-        /*return fetch(
-            `https://api.weatherbit.io/v2.0/alerts?lat=${latitude}&lon=${longitude}&key=a4275a39ffcb42a3b46fc23b2bb93de9`
-        )
-            .then((res) => res.json())
-            .then((data) => {
-                responseWeatherbit = data;
-                responseAlerts['WeatherApiAlert'] = responseWeatherbit;
-                if (data.error) {
-                    return NextResponse.json({ error: true, response: responseAlerts });
-                }
-                return NextResponse.json({ error: false, response: responseAlerts });
-            })
-            .catch((error) => {
-                responseWeatherbit = error;
-                responseAlerts['WeatherApiAlert'] = responseWeatherbit;
-                return NextResponse.json({ error: false, response: responseAlerts });
-            });*/
+
 
     } catch (error) {
         console.error("API Error:", error);
