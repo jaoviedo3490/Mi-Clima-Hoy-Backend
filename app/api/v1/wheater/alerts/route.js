@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import EngineAlarm from "../../../../Engine/EngineAlarm";
+import { translate } from "@vitalets/google-translate-api"
 
 export async function GET(request) {
     try {
@@ -29,8 +30,12 @@ export async function GET(request) {
             }
         )
         const data = await Pais.json();
-        console.log("Pais: "+data.address.country)
-        json_alarms = await EngineAlarm(data.address.country, `${anio}-${month}-${day}`);
+
+        let CountryTransale = await translate("Country-" + data.address.country, { from: "auto", to: "es" });
+        CountryTransale = CountryTransale.text.split("-");
+
+        json_alarms = await EngineAlarm(CountryTransale[1], anio, month, day);
+        //json_alarms = await EngineAlarm("Austria", anio, month, day);
 
 
         return NextResponse.json({ error: false, response: json_alarms }, {
