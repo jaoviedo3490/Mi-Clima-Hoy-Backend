@@ -10,19 +10,19 @@ const EngineAlarm = async (locate, anio, month, day) => {
         let prefijo = ServicesDataSet.AlarmPublicServices.Countries[locate][0].prefijo;
         switch (prefijo) {
             case "cap":
-                let vara = new Date(anio, (month - 1), (day-1), 30).toString()
-                let arr = vara.split(" ");
+                let dateFormat = new Date(anio, (month - 1), (day-1), 30).toString()
+                let arr = dateFormat.split(" ");
                 //console.log()
-                const parserChina = new Parser({
+                const parserCountry = new Parser({
                     requestOptions: { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' } }
                 });
-                const feedChina = await parserChina.parseURL(ServicesDataSet.AlarmPublicServices.Countries[locate][0].url);
+                const feedCountry= await parserCountry.parseURL(ServicesDataSet.AlarmPublicServices.Countries[locate][0].url);
                 json_alerts_return['prefijo'] = ServicesDataSet.AlarmPublicServices.Countries[locate][0].prefijo;
                 json_alerts_return['Pais'] = locate;
                 json_alerts_return['Date-Format'] = `${arr[0]}, ${arr[2]} ${arr[1]} ${arr[3]}`
                 
 
-                json_alerts_return[locate] = feedChina.items.filter(el => el.pubDate && el.pubDate.startsWith(`${arr[0]}, ${arr[2]} ${arr[1]} ${arr[3]}`));
+                json_alerts_return[locate] = feedCountry.items.filter(el => el.pubDate && el.pubDate.startsWith(`${arr[0]}, ${arr[2]} ${arr[1]} ${arr[3]}`));
                 break;
             case "none":
                 if (ServicesDataSet.AlarmPublicServices.Countries[locate][0].type === "xml/rss") {

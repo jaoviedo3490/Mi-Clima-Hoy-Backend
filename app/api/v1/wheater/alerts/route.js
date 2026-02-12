@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import EngineAlarm from "../../../../Engine/EngineAlarm";
 import { translate } from "@vitalets/google-translate-api"
+const countries = require("i18n-iso-countries");
 
 export async function GET(request) {
     try {
@@ -13,6 +14,7 @@ export async function GET(request) {
         const month = searchParams.get("month");
         var Pais = "";
         var json_alarms = {}
+        countries.registerLocale(require("i18n-iso-countries/langs/es.json"));
 
 
         // Validación básica
@@ -31,11 +33,12 @@ export async function GET(request) {
         )
         const data = await Pais.json();
 
-        let CountryTransale = await translate("Country-" + data.address.country, { from: "auto", to: "es" });
-        CountryTransale = CountryTransale.text.split("-");
+        //let CountryTransale = await translate("Country-" + data.address.country, { from: "auto", to: "es" });
+        //CountryTransale = CountryTransale.text.split("-");
 
-        json_alarms = await EngineAlarm(CountryTransale[1], anio, month, day);
-        //json_alarms = await EngineAlarm("Austria", anio, month, day);
+        //json_alarms = await EngineAlarm(CountryTransale[1], anio, month, day);
+        //console.log(data.address.country_code)
+        json_alarms = await EngineAlarm(countries.getName(data.address.country_code, "es"), anio, month, day);
 
 
         return NextResponse.json({ error: false, response: json_alarms }, {
