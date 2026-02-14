@@ -52,6 +52,39 @@
             "Comoras":[
                 {"url":"https://severeweather.wmo.int/v2/cap-alerts/km-anacm-fr/rss.xml","prefijo":"cap","type":"xml/rss"}
             ],
+            "Congo":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/cg-anac-fr/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Costa Rica":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/cr-imn-es/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Croacia":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/hr-meteo-hr/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Curazao":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/cw-meteo-en/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Sint Maarten":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/cw-meteo-en/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+             "Chipre":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/cy-dom-en/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+             "Chequia":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/cz-chmi-cs/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+             "República Democrática del Congo":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/cd-mettelsat-fr/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+             "Dinamarca":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/dk-dmi-dk/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+             "República Dominicana":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/do-indomet-es/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Rusia":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/ru-roshydromet-en/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
             "Colombia":[
                 {"url":"https://www.gestiondelriesgo.gov.co/rss/AtomAlert.aspx","prefijo":"none","type":"xml/rss"}
             ],
