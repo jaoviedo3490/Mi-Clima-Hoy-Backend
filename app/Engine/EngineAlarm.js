@@ -7,6 +7,7 @@ const EngineAlarm = async (locate, anio, month, day) => {
 
     try {
         var json_alerts_return = {}
+        //console.log("Pais: "+locate+"JSON_CONTENT:"+JSON.stringify(ServicesDataSet.AlarmPublicServices));
         let prefijo = ServicesDataSet.AlarmPublicServices.Countries[locate][0].prefijo;
         switch (prefijo) {
             case "cap":
@@ -16,6 +17,7 @@ const EngineAlarm = async (locate, anio, month, day) => {
                 const parserCountry = new Parser({
                     requestOptions: { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' } }
                 });
+                console.log("aqui"+ServicesDataSet.AlarmPublicServices.Countries[locate]);
                 const feedCountry= await parserCountry.parseURL(ServicesDataSet.AlarmPublicServices.Countries[locate][0].url);
                 json_alerts_return['prefijo'] = ServicesDataSet.AlarmPublicServices.Countries[locate][0].prefijo;
                 json_alerts_return['Pais'] = locate;

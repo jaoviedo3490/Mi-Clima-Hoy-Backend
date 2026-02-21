@@ -76,11 +76,68 @@
              "República Democrática del Congo":[
                 {"url":"https://severeweather.wmo.int/v2/cap-alerts/cd-mettelsat-fr/rss.xml","prefijo":"cap","type":"xml/rss"}
             ],
+            "Ecuador":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/ec-inamhi-es/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Egipto":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/eg-ema-ar/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Estonia":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/eg-ema-ar/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
              "Dinamarca":[
                 {"url":"https://severeweather.wmo.int/v2/cap-alerts/dk-dmi-dk/rss.xml","prefijo":"cap","type":"xml/rss"}
             ],
              "República Dominicana":[
                 {"url":"https://severeweather.wmo.int/v2/cap-alerts/do-indomet-es/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Finlandia":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/fi-fmi-xx/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Francia":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/fr-meteofrance-xx/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Alemania":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/de-dwd-en/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Ghana":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/gh-gmet-en/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Grecia":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/gr-hnms-el/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "India":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/in-ndma-xx/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Guinea":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/gn-dnm-fr/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Guyana":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/gy-hms-en/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Hungría":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/hu-met-xx/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Guinea-Bisáu":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/gw-inm-pt/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Islandia":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/is-vedur-is/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Indonesia":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/id-inatews-id/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Iran":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/ir-irimo-fa/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Irlanda":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/ie-met-en/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Iran":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/ir-irimo-fa/rss.xml","prefijo":"cap","type":"xml/rss"}
+            ],
+            "Iran":[
+                {"url":"https://severeweather.wmo.int/v2/cap-alerts/ir-irimo-fa/rss.xml","prefijo":"cap","type":"xml/rss"}
             ],
             "Rusia":[
                 {"url":"https://severeweather.wmo.int/v2/cap-alerts/ru-roshydromet-en/rss.xml","prefijo":"cap","type":"xml/rss"}
